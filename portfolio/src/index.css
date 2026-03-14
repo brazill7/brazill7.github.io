@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #020205;
+  --color-card: #0a0a0f;
+  --color-primary: #ffffff;
+  --color-secondary: #8e8e93;
+  --color-accent: #a855f7;
+  --color-f1-red: #e10600;
+  --font-sans: "SF Pro Display", "Inter", system-ui, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  body {
+    @apply text-primary antialiased selection:bg-accent/30;
+    margin: 0;
+    background-color: transparent;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  html {
+    background-color: #000002;
+  }
+}
+
+/* Refined Liquid Glass Effect */
+.liquid-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Starfield Animation - Enhanced */
+@keyframes stars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-2000px); }
+}
+
+.star-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  background-image: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(3px 3px at 40px 70px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 50px 160px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(4px 4px at 90px 40px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+  background-size: 300px 300px;
+  animation: stars 120s linear infinite;
+  opacity: 0.8;
+  will-change: transform;
+}
+
+.liquid-glass-strong {
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #020205; }
+::-webkit-scrollbar-thumb { 
+  background: #333; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
