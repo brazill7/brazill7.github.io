@@ -47,7 +47,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Camera Roll Trivia',
-    appName: 'Memora',
+    appName: 'Camera Roll Trivia',
     description: 'Camera Roll Trivia transforms your camera roll into a privacy-focused trivia experience where you can relive forgotten memories by guessing the location, date, or time of your photos, all while tracking your accuracy through local stats and smart, randomized gameplay.',
     techStack: ['Swift', 'SwiftUI', 'PhotoKit'],
     category: 'App',
