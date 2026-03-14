@@ -15,16 +15,15 @@ const Galaxy = ({ top, left, size, color, delay, duration }: { top: string, left
       delay: delay,
       ease: "linear" 
     }}
-    className="absolute pointer-events-none"
+    className="absolute pointer-events-none rounded-full"
     style={{
       top,
       left,
       width: size,
       height: `calc(${size} * 0.5)`,
-      background: `radial-gradient(ellipse at center, ${color} 0%, transparent 100%)`,
+      background: `radial-gradient(ellipse at center, ${color} 0%, transparent 80%)`,
       zIndex: 1,
-      willChange: "transform, opacity",
-      filter: 'blur(20px)'
+      filter: 'blur(10px)' // Moderate blur for smooth edges without lag
     }}
   >
     {/* Subtle spiral/core effect */}
@@ -90,8 +89,7 @@ const RandomShip = () => {
       className="absolute h-[1.5px] w-[120px] pointer-events-none z-10 origin-left"
       style={{
         background: 'linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), rgba(255, 255, 255, 0.5))',
-        boxShadow: '0 0 8px rgba(168, 85, 247, 0.2)',
-        willChange: "left, top, opacity"
+        boxShadow: '0 0 8px rgba(168, 85, 247, 0.2)'
       }}
     />
   );
@@ -103,9 +101,8 @@ const SpaceBackground = () => {
       {/* Deep Space Base Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#0a0a25_0%,#000003_100%)]" />
 
-      {/* Stars - Bottom Layer (Dense) */}
-      <div className="star-layer" style={{ opacity: 0.5 }} />
-      <div className="star-layer" style={{ animationDuration: '150s', transform: 'rotate(45deg)', opacity: 0.3 }} />
+      {/* Stars - Bottom Layer */}
+      <div className="star-layer" style={{ opacity: 0.4 }} />
       
       {/* Scattered Subtle Galaxies */}
       <Galaxy top="15%" left="10%" size="800px" color="rgba(168, 85, 247, 0.4)" delay={0} duration={120} />
@@ -120,8 +117,8 @@ const SpaceBackground = () => {
       {/* Stars - Top Layer (Fewer, bigger, brighter) */}
       <div className="star-layer" style={{ 
         animationDuration: '180s', 
-        opacity: 0.9, 
-        backgroundSize: '300px 300px', 
+        opacity: 0.7, 
+        backgroundSize: '400px 400px', 
         backgroundImage: `
           radial-gradient(2px 2px at 50px 50px, #fff, rgba(0,0,0,0)), 
           radial-gradient(2.5px 2.5px at 150px 250px, #fff, rgba(0,0,0,0)),
@@ -129,10 +126,9 @@ const SpaceBackground = () => {
         `
       }} />
 
-      {/* Distant Star Clusters */}
-      <div className="absolute top-[25%] left-[35%] w-4 h-4 bg-white rounded-full blur-[2px] opacity-60" />
-      <div className="absolute top-[65%] left-[55%] w-3 h-3 bg-purple-200 rounded-full blur-[1px] opacity-70" />
-      <div className="absolute top-[10%] left-[85%] w-5 h-5 bg-blue-100 rounded-full blur-[4px] opacity-30" />
+      {/* Distant Star Clusters - Reduced count for performance */}
+      <div className="absolute top-[25%] left-[35%] w-3 h-3 bg-white rounded-full blur-[2px] opacity-40" />
+      <div className="absolute top-[65%] left-[55%] w-2 h-2 bg-purple-200 rounded-full blur-[1px] opacity-50" />
     </div>
   );
 };
