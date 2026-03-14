@@ -32,7 +32,7 @@ export const projects: Project[] = [
   {
     title: 'Smart-Commit',
     description: 'AI-powered Git commit generation that runs 100% locally on Mac using Apple Intelligence. Powered by the apple_fm_sdk python library.',
-    techStack: ['Python', 'Git-Cli', 'Apple Intelligence', 'MacOS'],
+    techStack: ['Python', 'Git-CLI', 'Apple Intelligence', 'macOS'],
     github: 'https://github.com/brazill7/smart-commit',
     category: 'Tool'
   },

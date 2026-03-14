@@ -22,9 +22,13 @@ jobs:
         run: |
           npm install
           npm run build
+          # Create subfolder structure so the site works at /portfolio/
+          mkdir -p final_dist/portfolio
+          cp -r dist/* final_dist/portfolio/
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: portfolio/dist
+          folder: portfolio/final_dist
           branch: gh-pages
+          clean: false # Set to false if you have other folders in gh-pages
